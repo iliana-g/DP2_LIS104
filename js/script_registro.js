@@ -27,7 +27,7 @@ function agregarform(){
         alert("La contraseña debe tener como mínimo 8 caracteres para ser válida.");
         return false;
     }
-    return true; //Se ejecuta si se ha hecho con
+    return true; //Se ejecuta si se ha hecho con éxito
 }
 
 function validarEmail()
@@ -64,7 +64,7 @@ $(document).ready(function () {
         };
 
         $.ajax({
-            url: '../form.php',  // o solo 'registro.php' si está en la misma carpeta
+            url: '../form.php',  //conexión
             type: 'POST',
             data: JSON.stringify(datos),
             contentType: 'application/json',

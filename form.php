@@ -34,13 +34,13 @@ if (isset($datos['nombre'], $datos['correo'], $datos['fechanacimiento'], $datos[
     if ($stmt->execute()) {
         echo json_encode(["exito" => true]);
     } else {
-        echo json_encode(["exito" => false, "mensaje" => "Error al guardar."]);
+        echo json_encode(["exito" => false, "mensaje" => "Error al guardar"]);
     }
 
     $stmt->close();
     $conn->close();
 } else {
-    echo json_encode(["exito" => false, "mensaje" => "Datos incompletos."]);
+    echo json_encode(["exito" => false, "mensaje" => "Los datos están incompletos"]);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -53,19 +53,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // VALIDACIONES 
     if (empty($nombre)) {
-        $errores[] = "El nombre completo es obligatorio.";
+        $errores[] = "Debes ingresar tu nombre completo";
     }
 
     if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
-        $errores[] = "El correo electrónico no es válido.";
+        $errores[] = "El correo electrónico ingresado no es válido.";
     }
 
     if (empty($fecha)) {
-        $errores[] = "La fecha de nacimiento es obligatoria.";
+        $errores[] = "Debes ingresar tu fecha de nacimiento";
     } 
     
-    if (strlen($contrasena) < 6) {
-        $errores[] = "La contraseña debe tener al menos 6 caracteres.";
+    if (strlen($contrasena) < 8) {
+        $errores[] = "La contraseña debe tener al menos 8 caracteres.";
     }
 
     if (count($errores) > 0) {
